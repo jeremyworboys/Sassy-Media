@@ -4,7 +4,7 @@
 Sassy Media re-factors media queries within the CSS outputted by SASS to enhance
 compression and readability.
 
-Usage: python sassy-media.py style.css, ...
+Usage: python sassymedia.py style.css, ...
 """
 import sys
 import re
@@ -15,8 +15,11 @@ RE_HAS_MEDIA = re.compile("@media")
 RE_FIND_MEDIA = re.compile("(@media.+?)(\{)", re.DOTALL | re.MULTILINE)
 
 
-class MediaFix:
-    """Media fix is designed to re-factor media queries within the CSS outputted by SASS."""
+class SassyMedia:
+    """
+    Sassy Media re-factors media queries within the CSS outputted by SASS to
+    enhance compression and readability.
+    """
 
     def __init__(self):
         pass
@@ -80,7 +83,8 @@ class MediaFix:
 
 def help():
     print """
-Media fix is designed to re-factor media queries within the CSS outputted by SASS.
+Sassy Media re-factors media queries within the CSS outputted by SASS to enhance
+compression and readability.
 
 Usage: %s style.css, ...
 """ % sys.argv[0]
@@ -88,7 +92,7 @@ Usage: %s style.css, ...
 
 def main():
     if len(sys.argv) > 1:
-        m = MediaFix()
+        m = SassyMedia()
         for style in sys.argv[1::]:
             m.fix(style)
     else:
