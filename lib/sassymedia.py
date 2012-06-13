@@ -22,15 +22,9 @@ class SassyMedia:
     """
 
     def __init__(self):
-        pass
-
-    def fix(self, style):
         self._reset()
-        # Get the content of the CSS file
-        fh = open(style, "r")
-        self.contents = fh.read()
-        fh.close()
 
+    def run(self):
         # Make sure it has media queries
         if not RE_HAS_MEDIA.search(self.contents):
             return
@@ -56,8 +50,19 @@ class SassyMedia:
                 self.contents += content + "\n"
             self.contents += "}\n"
 
-        # Re-output the file
-        fh = open(style, "w")
+    def fix(self, filename):
+        self._reset()
+        self._get_file_contents(filename)
+        self.run()
+        self._put_file_contents(filename)
+
+    def _get_file_contents(self, filename):
+        fh = open(filename, "r")
+        self.contents = fh.read()
+        fh.close()
+
+    def _put_file_contents(self, filename):
+        fh = open(filename, "w")
         print >> fh, self.contents
         fh.close()
 

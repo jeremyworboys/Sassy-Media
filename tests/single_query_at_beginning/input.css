@@ -1,0 +1,10 @@
+@media screen and (min-width: 35em) {
+    .test-class {
+        color: blue;
+    }
+}
+
+.test-class {
+    color: red;
+}
+
