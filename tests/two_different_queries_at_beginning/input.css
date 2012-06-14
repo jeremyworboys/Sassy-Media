@@ -1,6 +1,8 @@
 @media screen and (min-width: 35em) {
 .test-class { color: blue; }
 }
+@media screen and (min-width: 70em) {
+.test-class { color: green; }
+}
 
 .test-class { color: red; }
-

@@ -30,7 +30,8 @@ class SassyMedia:
             return
 
         # Find all of the unique media queries
-        self.queries = sorted([(m.group(1).strip(), m) for m in RE_FIND_MEDIA.finditer(self.contents)])
+        # Issue #1: Media query orders can get mixed up
+        self.queries = [(m.group(1).strip(), m) for m in RE_FIND_MEDIA.finditer(self.contents)]
 
         # Consolidate the media queries
         for (query, m) in self.queries:

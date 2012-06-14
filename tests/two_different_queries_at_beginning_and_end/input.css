@@ -4,3 +4,6 @@
 
 .test-class { color: red; }
 
+@media screen and (min-width: 70em) {
+.test-class { color: green; }
+}

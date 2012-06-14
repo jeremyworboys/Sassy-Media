@@ -1,0 +1,14 @@
+
+.selector-1 { color: blue; }
+
+
+.selector-2 { color: blue; }
+
+
+@media screen and (min-width: 40em) {
+.selector-1 { color: red; }
+.selector-2 { color: red; }
+}
+@media screen and (min-width: 25em) {
+.selector-2 { color: green; }
+}
